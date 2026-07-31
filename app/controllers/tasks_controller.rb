@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     debugger
     task = Task.new create_params
 
-    if task.save
+    if task.save!
       render :json, { success: true, data: task }
     end
   end
