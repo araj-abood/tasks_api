@@ -1,12 +1,12 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [ :destroy, :show ]
+  before_action :find_task, only: [ :destroy, :show, :update ]
 
   def index
     @tasks = Task.all
   end
 
   def create
-    task = Task.new create_params
+    task = Task.new article_params
     if task.save!
       render json: { success: true, data: task }, status: :created
     end
@@ -16,6 +16,12 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     if task.destroy!
         head :no_content
+    end
+  end
+
+  def update
+    if @task.update(article_params)
+      render json: { success: true, data: @task }, status: :ok
     end
   end
 
@@ -29,7 +35,7 @@ class TasksController < ApplicationController
   end
 
 
-  def create_params
+  def article_params
     params.expect(task: [ :task, :completed ])
   end
 end
