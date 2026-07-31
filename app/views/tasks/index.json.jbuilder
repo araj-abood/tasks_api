@@ -1,1 +1,1 @@
-json.name "Hello world"
+json.array! @tasks, :id, :task, :completed
