@@ -50,10 +50,4 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-
-  # custom added development stuff
-  gem "rspec-rails"
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "database_cleaner"
 end
