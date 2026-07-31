@@ -18,7 +18,6 @@ module ExceptionHandler
 
   def render_unprocessable_entity(exception)
     # Provides detailed validation errors if it's an ActiveRecord validation failure
-    debugger
     errors = exception.record&.errors&.as_json || exception.message
     render json: { errors: errors }, status: :unprocessable_entity
   end
