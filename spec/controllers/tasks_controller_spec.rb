@@ -40,7 +40,7 @@ RSpec.describe TasksController, type: :controller do
       it "does not create a task" do
         expect {
           post :create, params: params
-        }.not_to change(Post, :count)
+        }.not_to change(Task, :count)
       end
 
       it "returns validation errors" do
