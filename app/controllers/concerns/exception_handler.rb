@@ -28,7 +28,7 @@ module ExceptionHandler
     render_error(exception.message, :bad_request)
   end
 
-  def rescue_internal_server_error
+  def render_internal_server_error(exception)
     # can log error here to EFK or something maybe i dont know
     message = Rails.env.production? ? "Something went wrong" : exception.message
     render_error(message, :internal_server_error)
