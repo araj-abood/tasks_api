@@ -5,9 +5,8 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new create_params
-    debugger
     if task.save!
-      render json: { success: true, data: task }
+      render json: { success: true, data: task }, status: :created
     end
   end
 
