@@ -4,7 +4,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    debugger
     task = Task.new create_params
 
     if task.save!
