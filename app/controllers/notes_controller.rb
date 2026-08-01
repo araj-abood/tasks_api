@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   include CrudActions
 
   private
-  def note_params
+  def notes_param
     params.expect(note: [ :content ])
   end
 end
