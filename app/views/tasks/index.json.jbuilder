@@ -1,1 +1,1 @@
-json.array! @tasks, :id, :task, :completed
+json.array! @notes, :id, :content
