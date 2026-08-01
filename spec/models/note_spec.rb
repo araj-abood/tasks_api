@@ -7,5 +7,10 @@ RSpec.describe Note, type: :model do
 
       expect(note).to be_valid
     end
+    it "Is invalud with no content attribute" do
+      note = Note.new()
+
+      expect(note).not_to be_valid
+    end
   end
 end
