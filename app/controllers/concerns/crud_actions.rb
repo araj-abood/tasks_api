@@ -31,6 +31,14 @@ module CrudActions
   end
 
 
+  def destroy
+    obj_record = get_model_constant.find(params[:id])
+    if obj_record.destroy!
+      head :no_content
+    end
+  end
+
+
   private
   def get_model_constant
     controller_name.classify.constantize
