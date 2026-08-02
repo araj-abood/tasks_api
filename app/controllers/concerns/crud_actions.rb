@@ -1,11 +1,8 @@
 module CrudActions
   extend ActiveSupport::Concern
 
-
   def index
-    actual_modal = get_model_constant
-
-    all_record = actual_modal.all
+    all_record = get_model_constant.all
 
     instance_variable_set("@#{controller_name}", all_record)
   end
@@ -19,6 +16,11 @@ module CrudActions
     end
   end
 
+
+  def show
+    obj_record = get_model_constant.find(params[:id])
+    instance_variable_set("@#{controller_name.singularize}", obj_record)
+  end
 
 
   private
