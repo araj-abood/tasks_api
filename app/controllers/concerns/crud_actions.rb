@@ -23,6 +23,14 @@ module CrudActions
   end
 
 
+  def update
+    obj_record = get_model_constant.find(params[:id])
+    if obj_record.update(model_params)
+      render json: { success: true, data: obj_record }, status: :ok
+    end
+  end
+
+
   private
   def get_model_constant
     controller_name.classify.constantize
