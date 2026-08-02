@@ -14,7 +14,9 @@ module CrudActions
 
   def create
     obj_record = get_model_constant.new(model_params)
-    debugger
+    if obj_record.save!
+      render json: { success: true, data: obj_record }, status: :created
+    end
   end
 
 
